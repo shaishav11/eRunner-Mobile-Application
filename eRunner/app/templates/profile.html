@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 150px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+select {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  /*border-radius: %;*/
+}
+
+.container {
+  padding: 15px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<center>
+    <h1>eRunner Profile Page</h1>
+</center>
+<form action="/profile" method="post">
+  <div class="imgcontainer">
+    <img src="{{url_for('static', filename='symbol.png')}}" alt="Avatar" class="avatar">
+  </div>
+  <div class="container" >
+  <input type="hidden" name="user_id" value={{user_id}}>
+  <br>
+  <label for="address_line"><b>Street Address</b></label>
+  <br>
+  <input type="text" placeholder="Enter your Street Address" name="address_line" required>
+  <br>
+  <label for="city"><b>City</b></label>
+  <br>
+  <input type="text" placeholder="Enter your City" name="city" required>
+  <br>
+  <label for="state"><b>state</b></label>
+  <br>
+  <input type="text" placeholder="Enter your State" name="state" required>
+  <br>
+  <label for="country"><b>Country</b></label>
+  <br>
+  <input type="text" placeholder="Enter your Country" name="country" required>
+  <br>
+  <label for="zip_code"><b>Zip Code</b></label>
+  <br>
+  <input type="text" placeholder="Enter your Zipcode" name="zip_code" required>
+  <br>
+  <center>    
+      <button type="submit" class="btn btn-success">Update Profile</button>
+  </center>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="psw"><a href="http://127.0.0.1:5000/logout?user_id={{user_id}}" style="margin: 20px">Log Out</a></span>
+    <span class="psw"><a href="http://127.0.0.1:5000/home?user_id={{user_id}}">Back to Home</a></span>
+  <br>
+  <br>
+  </div>
+  <br>
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+      <div class="alert-{{category}}" align="center"><strong>{{category}}: </strong>{{ message }}</div>
+    {% endfor %}
+  <br>
+</form>
+</body>
+</html>

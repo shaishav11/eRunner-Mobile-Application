@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 150px solid #f1f1f1;}
+
+input[type=text], input[type=password], input[type=date] {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+select {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 10px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  /*border-radius: %;*/
+}
+
+.container {
+  padding: 15px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<center>
+    <h1>eRunner Quick Race</h1>
+</center>
+
+<form action="/home/quickrace" method="post">
+  <div class="imgcontainer">
+    <img src="{{url_for('static', filename='symbol.png')}}" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container" >
+    <input type="hidden" name="user_id" value={{user_id}}>
+    <br>
+    <label for="schedule_date">Select Date:</label>
+    <br>
+    <input type="date" name="date" required>
+    <br>
+    <label for="distance">Select Distance (in miles):</label>
+    <br>
+      <select name="distance">
+        <option value=0>Select Distance </option>
+        <option value=1>1 Mile</option>
+        <option value=2>2 Miles</option>
+        <option value=3>3 Miles</option>
+        <option value=4>4 Miles</option>
+        <option value=5>5 Miles</option>
+        <option value=6>6 Miles</option>
+        <option value=7>7 Miles</option>
+        <option value=8>8 Miles</option>
+        <option value=9>9 Miles</option>
+        <option value=10>10 Miles</option>
+      </select>
+    <br>
+    <label for="time">Select time</label>
+    <br>
+      <select name="time">
+        <option value=0>Race Now</option>
+        <option value=1>9:00 AM</option>
+        <option value=2>9:30 AM</option>
+        <option value=3>10:00 AM</option>
+        <option value=4>10:30 AM</option>
+        <option value=5>11:00 AM</option>
+        <option value=6>11:30 AM</option>
+        <option value=7>12:00 Noon</option>
+        <option value=8>12:30 PM</option>
+        <option value=9>1:00 PM</option>
+        <option value=10>1:30 PM</option>
+      </select>
+    <br>
+    <center>    
+      <button type="submit" class="btn btn-success">Find Opponent</button>
+    </center>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="psw"><a href="http://127.0.0.1:5000/logout?user_id={{user_id}}" style="margin: 20px">Log Out</a></span>
+    <span class="psw"><a href="http://127.0.0.1:5000/home?user_id={{user_id}}">Back to Home</a></span>
+  <br>
+  <br>
+  </div>
+  <br>
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+      <div class="alert-{{category}}" align="center"><strong>{{category}}: </strong>{{ message }}</div>
+    {% endfor %}
+  <br>
+</form>
+</body>
+</html>
