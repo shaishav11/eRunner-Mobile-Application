@@ -16,20 +16,20 @@ There are multiple requirements to build an efficient database who can support l
 Requirements are following:
 
 1. Data Modeling
-Enhanced Entity Relation
-Unified Modeling Language
-Relational Model 
+<br>Enhanced Entity Relation
+<br>Unified Modeling Language
+<br>Relational Model 
 
 2. SQL to establish relation between data
-MySQL Workbench
-Various real world situations using query to retrieve
+<br>MySQL Workbench
+<br>Various real world situations using query to retrieve
 
 3. NoSQL for fast insert and retrieval of match data
-MongoDB
-Creation of collections in database on AWS
-Maintain LIVE data of matches and users’ Avatar
+<br>MongoDB
+<br>Creation of collections in database on AWS
+<br>Maintain LIVE data of matches and users’ Avatar
 
 4. Integration
-Python
-Database integration and Web App development using Flask - Python
+<br>Python
+<br>Database integration and Web App development using Flask - Python
 
