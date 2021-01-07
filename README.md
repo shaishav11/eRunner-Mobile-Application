@@ -4,6 +4,8 @@ The primary objective of this study was to design and implement a relational dat
 
 The goal of the study is to build a database model which can handle data of the live platform which facilitates racing, marathon and training. Database can efficiently store information of each user, logs of their matches, list of marathons and users’ enrollment in the marathon. Apart from it it should be accurate because the result of the match will be decided from data stored in the database and also it will help to identify players’ performance parameters like percentage win, total distance, stamina, level and other parameters. These parameters are useful for players to track their performance anso useful to identify opponents in the quick match.
 
+DEMO Video Link: https://www.youtube.com/watch?v=HuhTyrPF9SA
+
 There are multiple requirements to build an efficient database who can support live and complete mobile applications. 
 
 Requirements are following:
